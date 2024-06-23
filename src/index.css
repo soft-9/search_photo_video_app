@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.clip {
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+}
+.bord::before,
+.bord::after,
+.lin::before,
+.lie::before,
+.an::before,
+.viwe::before {
+  content: "";
+  position: absolute;
+  width: 0;
+}
+
+body {
+  background: #3d3d3d;
+}
+.min-back {
+  background: #161616e1;
+  backdrop-filter: blur(20px);
+}
+
+.color-header {
+  background: #ff00008a;
+  box-shadow: 0 0 0 10px red;
+  animation: shadow 2s linear infinite;
+  cursor: pointer;
+}
+@keyframes shadow {
+  0% {
+    box-shadow: 0 0 10px 5px #ff00008a;
+  }
+  50% {
+    box-shadow: 0 0 10px 15px #ff000033;
+  }
+  100% {
+    box-shadow: 0 0 10px 5px #ff00008a;
+  }
+}
+.bord::before,
+.bord::after {
+  background: red;
+  height: 3px;
+  top: 44px;
+  animation: scroll linear forwards;
+  animation-timeline: scroll();
+  border-radius: 2px;
+  z-index: -1;
+}
+.bord::before {
+  left: 0;
+}
+.bord::after {
+  right: 0;
+}
+@keyframes scroll {
+  0% {
+  }
+  75% {
+    width: 50%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+.anw {
+  width: 0;
+  animation: scro linear;
+  animation-timeline: scroll();
+}
+@keyframes scro {
+  0% {
+    width: 0;
+  }
+  75% {
+    width: 0;
+  }
+  100% {
+    width: 5rem;
+  }
+}
+
+.lin::before,
+.lie::before {
+  height: 2px;
+  background-color: red;
+  bottom: -5px;
+  border-radius: 5px;
+  right: 0;
+  transition: all 0.5s;
+}
+.lin:hover::before {
+  width: 100%;
+  left: 0;
+  box-shadow: 0px -20px 15px 8px #ff000085;
+}
+.lie::before {
+  width: 100%;
+  box-shadow: 0px -20px 15px 8px #ff000085;
+}
+
+.lie:hover::before {
+  width: 0%;
+  left: 0;
+  box-shadow: none;
+}
+
+.an {
+  animation: an infinite 3s;
+  transition: all ease-in-out 0.5s;
+}
+@keyframes an {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0px 0px red;
+  }
+  50% {
+    box-shadow: inset 0 0 13px 0px red;
+  }
+}
+.an:hover {
+  background: transparent;
+  animation: none;
+}
+.an:hover::before {
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background: red;
+}
+
+.an::before {
+  width: 0%;
+  height: 0%;
+  background-color: #2c2664;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.5s;
+}
+.viwe {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: ellipse(51% 35% at 51% 52%);
+  background: #3f5efb;
+}
+
+.viwe::before {
+  background-color: #ffffff;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  animation: sclp 3s infinite;
+}
+@keyframes sclp {
+  0%,
+  100% {
+    width: 5px;
+    height: 5px;
+  }
+  50% {
+    transform: scaleY(0.2);
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes scro {
+    0% {
+      width: 0;
+    }
+    75% {
+      width: 0;
+    }
+    100% {
+      width: 7rem;
+    }
+  }
+  .bord::after,
+  .bord::before {
+    top: 64px;
+    height: 7px;
+  }
+  .lin::before,
+  .lie::before {
+    height: 5px;
+  }
+  @keyframes sclp {
+    0%,
+    100% {
+      width: 10px;
+      height: 10px;
+    }
+    50% {
+      transform: scaleY(0.2);
+    }
+  }
+}
+.an {
+  animation: an infinite 3s;
+  transition: all ease-in-out 0.5s;
+}
+@keyframes an {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0px 0px red;
+  }
+  50% {
+    box-shadow: inset 0 0 13px 0px red;
+  }
+}
+::-webkit-scrollbar {
+  background: #161616e1;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #3d3d3d;
+  border-radius: 20px;
+}
